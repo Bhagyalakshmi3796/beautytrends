@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Beauty Trends — Premium Unisex Salon in Amruthahalli, Bangalore. Near Amruth Nagar Police Station. Haircuts, coloring, skincare, nail art & more. Book today.">
+<title>Beauty Trends | Premium Unisex Salon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: #080808;
+  color: #f0ebe4;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: none; }
+img { max-width: 100%; display: block; }
+
+/* ===================== CURSOR ===================== */
+.cursor {
+  width: 10px; height: 10px;
+  background: #c9a84c;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .15s, height .15s;
+}
+.cursor-ring {
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(201,168,76,0.6);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform .12s ease;
+}
+body:has(a:hover) .cursor, body:has(button:hover) .cursor { width:18px; height:18px; }
+
+/* ===================== VARIABLES ===================== */
+:root {
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --rose: #c9607a;
+  --black: #080808;
+  --dark: #111;
+  --card: #0f0f0f;
+  --border: rgba(201,168,76,0.18);
+  --muted: #7a7570;
+  --white: #f0ebe4;
+}
+
+/* ===================== NAV ===================== */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 200;
+  padding: 1.4rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.97) 0%, transparent 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  transition: background .3s;
+}
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem; letter-spacing: .12em;
+  color: var(--gold);
+}
+.logo span { color: var(--white); }
+.nav-links {
+  display: flex; gap: 2.2rem; list-style: none; align-items: center;
+}
+.nav-links a {
+  font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(240,235,228,0.75);
+  position: relative; padding-bottom: 3px;
+  transition: color .3s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:1px; background:var(--gold);
+  transition: width .3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width:100%; }
+.nav-book {
+  background: var(--gold); color: var(--black);
+  padding: .6rem 1.6rem; border: none;
+  font-size: .73rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition: background .3s, transform .2s;
+}
+.nav-book:hover { background: var(--gold2); transform: scale(1.04); }
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; }
+.hamburger span { width:24px; height:1.5px; background:var(--white); display:block; transition:.3s; }
+.mobile-menu {
+  display:none; position:fixed; inset:0; background:rgba(8,8,8,0.98);
+  z-index:199; flex-direction:column; align-items:center; justify-content:center; gap:2rem;
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a {
+  font-family:'Bebas Neue',sans-serif; font-size:3rem; letter-spacing:.1em; color:var(--white);
+  transition:color .3s;
+}
+.mobile-menu a:hover { color:var(--gold); }
+.mobile-close { position:absolute; top:2rem; right:5%; font-size:2rem; color:var(--white); background:none; border:none; }
+
+/* ===================== HERO ===================== */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-left {
+  display:flex; flex-direction:column; justify-content:center;
+  padding: 9rem 5% 5rem;
+  position: relative; z-index:2;
+}
+.hero-eyebrow {
+  font-size:.72rem; letter-spacing:.35em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.6rem;
+  display:flex; align-items:center; gap:1rem;
+  opacity:0; animation: fadeUp .8s .2s forwards;
+}
+.hero-eyebrow::before { content:''; width:36px; height:1px; background:var(--gold); }
+.hero-h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: clamp(4.5rem,8.5vw,9rem);
+  line-height:.9; letter-spacing:.02em;
+  opacity:0; animation: fadeUp .8s .4s forwards;
+}
+.hero-h1 .gold { color:var(--gold); }
+.hero-h1 .italic {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:.72em; color:var(--rose); display:block;
+}
+.hero-desc {
+  font-size:.95rem; color:var(--muted); line-height:1.85; max-width:400px;
+  margin: 2rem 0 2.5rem;
+  font-weight:300;
+  opacity:0; animation: fadeUp .8s .6s forwards;
+}
+.hero-actions {
+  display:flex; gap:1.2rem; align-items:center;
+  opacity:0; animation: fadeUp .8s .8s forwards;
+}
+.btn-gold {
+  background:var(--gold); color:var(--black);
+  padding:.95rem 2.2rem; border:none;
+  font-size:.78rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:all .3s;
+}
+.btn-gold:hover { background:var(--gold2); transform:translateX(4px); }
+.btn-ghost {
+  background:none; border:none; color:var(--white);
+  font-size:.78rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.95rem 0; border-bottom:1px solid rgba(240,235,228,0.25);
+  transition:all .3s;
+}
+.btn-ghost:hover { color:var(--gold); border-color:var(--gold); }
+
+.hero-stats {
+  display:flex; gap:3rem; margin-top:4rem;
+  opacity:0; animation: fadeUp .8s 1s forwards;
+}
+.stat-num {
+  font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--gold); line-height:1;
+}
+.stat-lbl { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-top:.3rem; }
+
+.hero-right {
+  position:relative; overflow:hidden;
+}
+.hero-right-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 75%, rgba(201,96,122,0.07) 0%, transparent 50%),
+    linear-gradient(160deg, #1a1208 0%, #0a0608 50%, #100a12 100%);
+}
+.hero-right-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(to right, var(--black) 0%, transparent 30%);
+}
+.hero-decor {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-scissor {
+  font-size:28rem; opacity:.04; user-select:none;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform:translateY(0) rotate(-10deg); }
+  50% { transform:translateY(-20px) rotate(-8deg); }
+}
+.hero-badge {
+  position:absolute; bottom:3.5rem; right:3.5rem; z-index:5;
+  width:105px; height:105px;
+  border:1px solid var(--gold); border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:1rem;
+  animation: spin 20s linear infinite;
+}
+.hero-badge span { font-size:.55rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); line-height:1.8; }
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ===================== MARQUEE ===================== */
+.marquee-bar {
+  background:var(--gold); padding:.85rem 0;
+  overflow:hidden; white-space:nowrap;
+}
+.marquee-track {
+  display:inline-flex; gap:2.5rem;
+  animation: marqueeMove 16s linear infinite;
+}
+.marquee-track span {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem; letter-spacing:.18em; color:var(--black); text-transform:uppercase;
+}
+.marquee-track .dot { color:rgba(0,0,0,.35); font-size:1.2rem; }
+@keyframes marqueeMove {
+  from{transform:translateX(0)} to{transform:translateX(-50%)}
+}
+
+/* ===================== SECTION COMMON ===================== */
+section { padding: 6rem 5%; }
+.sec-label {
+  font-size:.7rem; letter-spacing:.35em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.9rem;
+  display:flex; align-items:center; gap:.8rem;
+}
+.sec-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+.sec-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,5vw,5rem);
+  line-height:.95; letter-spacing:.02em;
+}
+.sec-title em {
+  font-family:'Playfair Display',serif; font-style:italic; color:var(--rose);
+}
+
+/* ===================== SERVICES ===================== */
+#services { background: var(--black); }
+.services-header {
+  display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3.5rem; flex-wrap:wrap; gap:1rem;
+}
+.view-all-link {
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
+  border-bottom:1px solid var(--gold); padding-bottom:3px; transition:opacity .3s;
+}
+.view-all-link:hover { opacity:.65; }
+.services-tabs {
+  display:flex; gap:0; margin-bottom:2.5rem;
+  border-bottom:1px solid var(--border);
+}
+.tab-btn {
+  background:none; border:none; color:var(--muted);
+  font-size:.75rem; letter-spacing:.2em; text-transform:uppercase;
+  padding:.8rem 2rem; border-bottom:2px solid transparent;
+  margin-bottom:-1px; transition:all .3s;
+}
+.tab-btn.active, .tab-btn:hover { color:var(--gold); border-color:var(--gold); }
+.tab-panel { display:none; }
+.tab-panel.active { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--border); }
+.svc-card {
+  background:var(--card); padding:2.2rem 1.8rem;
+  position:relative; overflow:hidden; transition:background .35s;
+}
+.svc-card:hover { background:#141414; }
+.svc-card::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:2px; background:var(--gold);
+  transition:width .4s;
+}
+.svc-card:hover::after { width:100%; }
+.svc-no {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.5rem; color:rgba(201,168,76,.1);
+  position:absolute; top:.8rem; right:1.2rem;
+  line-height:1; transition:color .35s;
+}
+.svc-card:hover .svc-no { color:rgba(201,168,76,.22); }
+.svc-icon { font-size:1.7rem; margin-bottom:1rem; }
+.svc-name {
+  font-family:'Playfair Display',serif; font-size:1.25rem;
+  margin-bottom:.6rem; transition:color .3s;
+}
+.svc-card:hover .svc-name { color:var(--gold); }
+.svc-desc { font-size:.82rem; color:var(--muted); line-height:1.75; margin-bottom:1.4rem; }
+.svc-price {
+  font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--gold);
+}
+.svc-price small { font-family:'DM Sans',sans-serif; font-size:.7rem; color:var(--muted); letter-spacing:.1em; }
+
+/* ===================== ABOUT ===================== */
+#about {
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
+  background: var(--dark);
+}
+.about-visual { position:relative; height:550px; }
+.about-box1 {
+  position:absolute; bottom:0; left:0;
+  width:72%; height:78%;
+  border:1px solid var(--border);
+  background:linear-gradient(150deg,#1a1208,#0a0806);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10rem; opacity:.12;
+}
+.about-box2 {
+  position:absolute; top:0; right:0;
+  width:52%; height:52%;
+  border:1px solid var(--border);
+  background:linear-gradient(150deg,rgba(201,168,76,.06),rgba(201,96,122,.04));
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem;
+}
+.about-big { font-family:'Bebas Neue',sans-serif; font-size:4.5rem; color:var(--gold); line-height:1; }
+.about-sub { font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+.about-vline { position:absolute; bottom:2rem; left:72%; width:1px; height:100px; background:var(--gold); opacity:.35; }
+.about-text { font-size:.9rem; color:var(--muted); line-height:1.9; margin-bottom:1.2rem; }
+.about-feats { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:2rem 0; }
+.feat-item { display:flex; gap:.8rem; align-items:flex-start; }
+.feat-icon { color:var(--gold); font-size:1.1rem; margin-top:.1rem; }
+.feat-text { font-size:.82rem; color:var(--muted); line-height:1.6; }
+.feat-text strong { display:block; color:var(--white); font-size:.88rem; margin-bottom:.2rem; }
+
+/* ===================== PRICING ===================== */
+#pricing { background:var(--black); }
+.pricing-header { text-align:center; margin-bottom:4rem; }
+.pricing-header .sec-label { justify-content:center; }
+.pricing-header .sec-label::before { display:none; }
+.pricing-tabs {
+  display:flex; justify-content:center; gap:0; margin-bottom:3rem;
+  border:1px solid var(--border);
+  width:fit-content; margin-left:auto; margin-right:auto;
+}
+.ptab {
+  background:none; border:none; color:var(--muted);
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+  padding:.7rem 1.8rem; transition:all .3s;
+}
+.ptab.active { background:var(--gold); color:var(--black); font-weight:600; }
+.ptab:hover:not(.active) { color:var(--white); }
+.price-panel { display:none; }
+.price-panel.active { display:block; }
+.price-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+.price-col {
+  background:var(--card); padding:2.5rem 2rem;
+  position:relative; overflow:hidden;
+}
+.price-col.featured {
+  background:linear-gradient(160deg,#1a1208,#0f0a0a);
+  border:1px solid var(--gold);
+  margin:-1px;
+}
+.price-col-badge {
+  position:absolute; top:1.2rem; right:1.2rem;
+  background:var(--gold); color:var(--black);
+  font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+  padding:.3rem .8rem;
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+}
+.price-col-title {
+  font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:.05em; margin-bottom:1.5rem;
+  color:var(--white);
+}
+.price-col.featured .price-col-title { color:var(--gold); }
+.price-item {
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:.7rem 0; border-bottom:1px solid rgba(201,168,76,.07);
+}
+.price-item:last-child { border-bottom:none; }
+.price-item-name { font-size:.85rem; color:var(--muted); }
+.price-item-val {
+  font-family:'Bebas Neue',sans-serif; font-size:1.15rem; color:var(--gold); white-space:nowrap;
+}
+
+/* ===================== GALLERY ===================== */
+#gallery { background:var(--dark); }
+.gallery-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3rem; flex-wrap:wrap; gap:1rem; }
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:200px 200px;
+  gap:4px;
+}
+.gallery-item {
+  background:var(--card); position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.gallery-item:nth-child(1) { grid-column:span 2; grid-row:span 2; }
+.gallery-inner {
+  width:100%; height:100%; transition:transform .5s ease;
+  display:flex; align-items:center; justify-content:center;
+  font-size:5rem; opacity:.15;
+}
+.gallery-item:hover .gallery-inner { transform:scale(1.06); }
+.gallery-overlay {
+  position:absolute; inset:0; background:rgba(8,8,8,0);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .4s;
+}
+.gallery-item:hover .gallery-overlay { background:rgba(8,8,8,0.55); }
+.gallery-label {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1rem; color:var(--white); opacity:0; transition:opacity .4s;
+}
+.gallery-item:hover .gallery-label { opacity:1; }
+/* Gradient backgrounds for gallery cells */
+.g1 { background:linear-gradient(135deg,#1a1208,#0f0a0a); }
+.g2 { background:linear-gradient(135deg,#120a10,#0a0808); }
+.g3 { background:linear-gradient(135deg,#0a1008,#080a08); }
+.g4 { background:linear-gradient(135deg,#100c0a,#080808); }
+.g5 { background:linear-gradient(135deg,#0a0c12,#080808); }
+
+/* ===================== BOOKING ===================== */
+#booking { background:var(--black); }
+.booking-wrap {
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+}
+.booking-info .sec-title { margin-bottom:1.5rem; }
+.booking-info p { font-size:.9rem; color:var(--muted); line-height:1.9; margin-bottom:2rem; }
+.booking-contacts { display:flex; flex-direction:column; gap:1.2rem; }
+.b-contact { display:flex; gap:1rem; align-items:center; }
+.b-icon { width:38px; height:38px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--gold); flex-shrink:0; }
+.b-txt { font-size:.85rem; }
+.b-txt small { display:block; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+
+.booking-form {
+  background:var(--card); border:1px solid var(--border);
+  padding:2.5rem 2rem;
+}
+.form-title {
+  font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.05em;
+  color:var(--gold); margin-bottom:2rem;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+.form-group { display:flex; flex-direction:column; gap:.5rem; margin-bottom:1rem; }
+.form-group label { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+.form-group input, .form-group select, .form-group textarea {
+  background:#0a0a0a; border:1px solid var(--border);
+  color:var(--white); font-family:'DM Sans',sans-serif; font-size:.88rem;
+  padding:.75rem 1rem; outline:none; transition:border-color .3s;
+  -webkit-appearance:none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
+.form-group select option { background:#111; }
+.form-group textarea { resize:vertical; min-height:90px; }
+.form-submit {
+  width:100%; background:var(--gold); color:var(--black);
+  padding:1rem; border:none;
+  font-size:.8rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:all .3s; margin-top:.5rem;
+}
+.form-submit:hover { background:var(--gold2); }
+.form-success {
+  display:none; text-align:center; padding:2rem;
+  font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--gold);
+}
+
+/* ===================== TESTIMONIALS ===================== */
+#testimonials { background:var(--dark); }
+.test-header { text-align:center; margin-bottom:3.5rem; }
+.test-header .sec-label { justify-content:center; }
+.test-header .sec-label::before { display:none; }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--border); }
+.test-card {
+  background:var(--card); padding:2.2rem 1.8rem; position:relative;
+}
+.test-stars { color:var(--gold); letter-spacing:.1em; font-size:.9rem; margin-bottom:1.2rem; }
+.test-quote {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1rem; line-height:1.75; color:rgba(240,235,228,.85); margin-bottom:1.5rem;
+}
+.test-author { display:flex; gap:.9rem; align-items:center; }
+.test-avatar {
+  width:42px; height:42px; border-radius:50%;
+  border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; background:var(--dark);
+}
+.test-name { font-size:.85rem; font-weight:500; }
+.test-role { font-size:.7rem; color:var(--muted); }
+
+/* ===================== CONTACT ===================== */
+#contact { background:var(--black); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5px; background:var(--border); margin-top:3.5rem; }
+.contact-block { background:var(--card); padding:2.5rem 2rem; }
+.contact-block-title {
+  font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:.05em;
+  color:var(--gold); margin-bottom:1.5rem;
+}
+.contact-item { margin-bottom:1rem; }
+.contact-item-lbl { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:.3rem; }
+.contact-item-val { font-size:.9rem; line-height:1.6; }
+.hours-row { display:flex; justify-content:space-between; padding:.5rem 0; border-bottom:1px solid rgba(201,168,76,.07); font-size:.85rem; }
+.hours-row:last-child { border-bottom:none; }
+.hours-row .day { color:var(--muted); }
+.hours-row .time { color:var(--white); }
+.hours-row.today .day { color:var(--gold); font-weight:500; }
+.hours-row.today .time { color:var(--gold); }
+.map-placeholder {
+  background:var(--dark); border:1px solid var(--border);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;
+  min-height:200px; margin-top:1.5rem; font-size:.8rem; color:var(--muted); text-align:center; padding:2rem;
+}
+.map-placeholder .map-icon { font-size:3rem; color:var(--gold); opacity:.5; }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background:#050505; border-top:1px solid var(--border);
+  padding:3.5rem 5% 2rem;
+}
+.footer-top {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem;
+}
+.footer-brand .logo { display:block; margin-bottom:1rem; }
+.footer-tagline { font-size:.85rem; color:var(--muted); line-height:1.7; max-width:260px; }
+.footer-socials { display:flex; gap:.8rem; margin-top:1.5rem; }
+.social-btn {
+  width:36px; height:36px; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.85rem; color:var(--muted); transition:all .3s;
+}
+.social-btn:hover { border-color:var(--gold); color:var(--gold); }
+.footer-col h4 {
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
+  margin-bottom:1.2rem;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.75rem; }
+.footer-col ul a { font-size:.83rem; color:var(--muted); transition:color .3s; }
+.footer-col ul a:hover { color:var(--white); }
+.footer-bottom {
+  border-top:1px solid var(--border); padding-top:1.5rem;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+}
+.footer-copy { font-size:.72rem; color:var(--muted); }
+.footer-legal { display:flex; gap:1.5rem; }
+.footer-legal a { font-size:.72rem; color:var(--muted); transition:color .3s; }
+.footer-legal a:hover { color:var(--white); }
+
+/* ===================== SCROLL REVEAL ===================== */
+.reveal {
+  opacity:0; transform:translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:900px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-left { padding:8rem 5% 5rem; }
+  #about { grid-template-columns:1fr; }
+  .about-visual { height:300px; }
+  .booking-wrap { grid-template-columns:1fr; }
+  .tab-panel.active { grid-template-columns:1fr 1fr; }
+  .price-grid { grid-template-columns:1fr; }
+  .test-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,160px); }
+  .gallery-item:nth-child(1) { grid-column:span 2; grid-row:span 1; }
+  nav { padding:1.2rem 5%; }
+  .nav-links, .nav-book { display:none; }
+  .hamburger { display:flex; }
+}
+@media (max-width:600px) {
+  .tab-panel.active { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr; }
+  .hero-stats { gap:2rem; }
+  .gallery-grid { grid-template-columns:1fr; grid-template-rows:repeat(5,160px); }
+  .gallery-item:nth-child(1) { grid-column:span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="logo">Beauty<span> Trends</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="goTo('#booking')">Book Now</button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#booking" onclick="closeMobile()" style="color:var(--gold)">Book Now →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Unisex Salon — Est. Nov 2024</div>
+    <h1 class="hero-h1">
+      <span class="italic">where</span>
+      BEAUTY<br>
+      <span class="gold">TRENDS</span>
+    </h1>
+    <p class="hero-desc">Your style, perfected. We craft bold looks and timeless transformations for every face, every gender, every occasion.</p>
+    <div class="hero-actions">
+      <button class="btn-gold" onclick="goTo('#booking')">Book Appointment</button>
+      <button class="btn-ghost" onclick="goTo('#services')">Explore Services</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5K+</div>
+        <div class="stat-lbl">Happy Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12+</div>
+        <div class="stat-lbl">Expert Stylists</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2024</div>
+        <div class="stat-lbl">Est. November</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-decor">
+      <div class="hero-scissor">✂</div>
+    </div>
+    <div class="hero-badge">
+      <span>Premium · Unisex · Salon · 2024 ·</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Haircut</span><span class="dot">◆</span>
+    <span>Hair Color</span><span class="dot">◆</span>
+    <span>Keratin</span><span class="dot">◆</span>
+    <span>Facial</span><span class="dot">◆</span>
+    <span>Nail Art</span><span class="dot">◆</span>
+    <span>Waxing</span><span class="dot">◆</span>
+    <span>Bridal</span><span class="dot">◆</span>
+    <span>Threading</span><span class="dot">◆</span>
+    <span>Massage</span><span class="dot">◆</span>
+    <span>Beard</span><span class="dot">◆</span>
+    <span>Haircut</span><span class="dot">◆</span>
+    <span>Hair Color</span><span class="dot">◆</span>
+    <span>Keratin</span><span class="dot">◆</span>
+    <span>Facial</span><span class="dot">◆</span>
+    <span>Nail Art</span><span class="dot">◆</span>
+    <span>Waxing</span><span class="dot">◆</span>
+    <span>Bridal</span><span class="dot">◆</span>
+    <span>Threading</span><span class="dot">◆</span>
+    <span>Massage</span><span class="dot">◆</span>
+    <span>Beard</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="sec-label">What We Offer</div>
+      <h2 class="sec-title">Our <em>Services</em></h2>
+    </div>
+    <a href="#pricing" class="view-all-link">View Pricing →</a>
+  </div>
+  <div class="services-tabs">
+    <button class="tab-btn active" onclick="switchTab('hair')">Hair</button>
+    <button class="tab-btn" onclick="switchTab('skin')">Skin &amp; Beauty</button>
+    <button class="tab-btn" onclick="switchTab('nails')">Nails</button>
+    <button class="tab-btn" onclick="switchTab('mens')">Men's</button>
+  </div>
+
+  <!-- HAIR -->
+  <div class="tab-panel active" id="tab-hair">
+    <div class="svc-card reveal">
+      <div class="svc-no">01</div>
+      <div class="svc-icon">✂️</div>
+      <div class="svc-name">Haircut & Style</div>
+      <div class="svc-desc">Precision cuts tailored to your face shape and personality. Includes wash, cut, blow-dry & finish.</div>
+      <div class="svc-price">₹400 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">02</div>
+      <div class="svc-icon">🎨</div>
+      <div class="svc-name">Hair Coloring</div>
+      <div class="svc-desc">Global, highlights, balayage, ombre & fashion shades. Using premium ammonia-free colors.</div>
+      <div class="svc-price">₹1,200 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">03</div>
+      <div class="svc-icon">💫</div>
+      <div class="svc-name">Keratin Treatment</div>
+      <div class="svc-desc">Transform frizzy hair into silky-smooth locks. Long-lasting formula up to 5 months.</div>
+      <div class="svc-price">₹3,500 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">04</div>
+      <div class="svc-icon">🌿</div>
+      <div class="svc-name">Spa Hair Treatment</div>
+      <div class="svc-desc">Deep conditioning, scalp massage & nourishing masks for intense repair and shine restoration.</div>
+      <div class="svc-price">₹800 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">05</div>
+      <div class="svc-icon">💇</div>
+      <div class="svc-name">Rebonding / Smoothening</div>
+      <div class="svc-desc">Permanent straightening or smoothening for manageable, sleek, frizz-free hair all day.</div>
+      <div class="svc-price">₹4,000 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">06</div>
+      <div class="svc-icon">👑</div>
+      <div class="svc-name">Bridal Hair Styling</div>
+      <div class="svc-desc">Trial + final bridal look — updo, bun, curls or extensions. Premium packages available.</div>
+      <div class="svc-price">₹5,000 <small>onwards</small></div>
+    </div>
+  </div>
+
+  <!-- SKIN -->
+  <div class="tab-panel" id="tab-skin">
+    <div class="svc-card reveal">
+      <div class="svc-no">01</div>
+      <div class="svc-icon">✨</div>
+      <div class="svc-name">Classic Facial</div>
+      <div class="svc-desc">Deep cleansing, exfoliation, steam, extraction & hydration mask for radiant glowing skin.</div>
+      <div class="svc-price">₹800 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">02</div>
+      <div class="svc-icon">🌸</div>
+      <div class="svc-name">Cleanup</div>
+      <div class="svc-desc">Quick skin refresh — cleansing, scrub, face pack & moisturizer. Perfect for regular maintenance.</div>
+      <div class="svc-price">₹400 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">03</div>
+      <div class="svc-icon">💆</div>
+      <div class="svc-name">De-Tan Treatment</div>
+      <div class="svc-desc">Removes sun tan and dark spots. Face, neck, arms & full body options available.</div>
+      <div class="svc-price">₹600 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">04</div>
+      <div class="svc-icon">🧖</div>
+      <div class="svc-name">Body Polishing</div>
+      <div class="svc-desc">Full body scrub, polish & moisturizing wrap for even skin tone and silky smooth texture.</div>
+      <div class="svc-price">₹2,500 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">05</div>
+      <div class="svc-icon">🪷</div>
+      <div class="svc-name">Waxing (Full Body)</div>
+      <div class="svc-desc">Rica, chocolate or honey wax. Gentle formulas for sensitive skin. Includes upper lip & chin.</div>
+      <div class="svc-price">₹1,200 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">06</div>
+      <div class="svc-icon">🧵</div>
+      <div class="svc-name">Threading & Eyebrows</div>
+      <div class="svc-desc">Eyebrow shaping, upper lip, forehead & full face threading. Tinting & lamination also available.</div>
+      <div class="svc-price">₹50 <small>onwards</small></div>
+    </div>
+  </div>
+
+  <!-- NAILS -->
+  <div class="tab-panel" id="tab-nails">
+    <div class="svc-card reveal">
+      <div class="svc-no">01</div>
+      <div class="svc-icon">💅</div>
+      <div class="svc-name">Manicure</div>
+      <div class="svc-desc">Classic, spa, gel or French manicure with nail shaping, cuticle care, massage & polish.</div>
+      <div class="svc-price">₹400 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">02</div>
+      <div class="svc-icon">🦶</div>
+      <div class="svc-name">Pedicure</div>
+      <div class="svc-desc">Foot soak, scrub, callus removal, massage & polish. Regular, spa, chocolate & crystal options.</div>
+      <div class="svc-price">₹500 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">03</div>
+      <div class="svc-icon">🎨</div>
+      <div class="svc-name">Nail Art</div>
+      <div class="svc-desc">Custom nail designs — ombre, foil, 3D art, chrome, gel extensions & acrylic nails.</div>
+      <div class="svc-price">₹200 <small>per nail onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">04</div>
+      <div class="svc-icon">✨</div>
+      <div class="svc-name">Gel Extensions</div>
+      <div class="svc-desc">Durable, natural-looking gel nail extensions. Long-lasting with zero damage to natural nails.</div>
+      <div class="svc-price">₹1,800 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">05</div>
+      <div class="svc-icon">💎</div>
+      <div class="svc-name">Nail Repair & Fill</div>
+      <div class="svc-desc">Infill for grown-out acrylics or gels, single nail repair, and maintenance services.</div>
+      <div class="svc-price">₹300 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">06</div>
+      <div class="svc-icon">🪄</div>
+      <div class="svc-name">Mani-Pedi Combo</div>
+      <div class="svc-desc">Full hands and feet treatment — best value combo with massage, polish & nail art included.</div>
+      <div class="svc-price">₹800 <small>onwards</small></div>
+    </div>
+  </div>
+
+  <!-- MENS -->
+  <div class="tab-panel" id="tab-mens">
+    <div class="svc-card reveal">
+      <div class="svc-no">01</div>
+      <div class="svc-icon">✂️</div>
+      <div class="svc-name">Men's Haircut</div>
+      <div class="svc-desc">Classic, fade, undercut, textured crop & modern styles. Includes wash & styling.</div>
+      <div class="svc-price">₹300 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">02</div>
+      <div class="svc-icon">🧔</div>
+      <div class="svc-name">Beard Grooming</div>
+      <div class="svc-desc">Beard shaping, trim, hot towel shave, oil treatment & moisturizing for a sharp, clean look.</div>
+      <div class="svc-price">₹200 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">03</div>
+      <div class="svc-icon">👑</div>
+      <div class="svc-name">Haircut + Beard Combo</div>
+      <div class="svc-desc">Complete grooming package — precision haircut, beard shaping & hot towel service.</div>
+      <div class="svc-price">₹450 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">04</div>
+      <div class="svc-icon">💆</div>
+      <div class="svc-name">Men's Facial</div>
+      <div class="svc-desc">Tailored for men's skin — deep cleansing, tan removal, oil control & hydration treatment.</div>
+      <div class="svc-price">₹700 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">05</div>
+      <div class="svc-icon">🎨</div>
+      <div class="svc-name">Men's Hair Color</div>
+      <div class="svc-desc">Global, highlights, streaks or grey coverage. Fashion colors for bold, trendy looks.</div>
+      <div class="svc-price">₹800 <small>onwards</small></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-no">06</div>
+      <div class="svc-icon">💅</div>
+      <div class="svc-name">Men's Manicure</div>
+      <div class="svc-desc">Nail shaping, buffing, cuticle care & hand massage. Groomed hands make a great impression.</div>
+      <div class="svc-price">₹350 <small>onwards</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-box1">✂</div>
+    <div class="about-box2">
+      <div class="about-big">100%</div>
+      <p class="about-sub">Premium Products</p>
+    </div>
+    <div class="about-vline"></div>
+  </div>
+  <div class="about-content">
+    <div class="sec-label">Who We Are</div>
+    <h2 class="sec-title">Beauty That<br><em>Speaks</em> For You</h2>
+    <p class="about-text reveal">At Beauty Trends, we believe great style is more than a service — it's an experience. Since November 2024, our expert team of stylists, colorists and beauty specialists have been crafting unforgettable looks for men and women alike.</p>
+    <p class="about-text reveal">We use only premium, internationally certified products and stay ahead of every global trend. Our welcoming, inclusive salon is your personal space to relax, refresh and reinvent yourself.</p>
+    <div class="about-feats">
+      <div class="feat-item reveal">
+        <div class="feat-icon">◆</div>
+        <div class="feat-text"><strong>Certified Stylists</strong>All our professionals are trained & certified with 3+ years of experience.</div>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">◆</div>
+        <div class="feat-text"><strong>Premium Products</strong>We use L'Oreal, Wella, Schwarzkopf & top-tier skincare brands.</div>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">◆</div>
+        <div class="feat-text"><strong>Hygienic Standards</strong>Sterilized tools, fresh towels & spotless workstations every time.</div>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">◆</div>
+        <div class="feat-text"><strong>Unisex & Inclusive</strong>A welcoming space for every gender, age & style preference.</div>
+      </div>
+    </div>
+    <button class="btn-gold" onclick="goTo('#booking')">Book a Visit</button>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-header">
+    <div class="sec-label">Transparent Pricing</div>
+    <h2 class="sec-title">Service <em>Rates</em></h2>
+    <p style="color:var(--muted);font-size:.88rem;margin-top:1rem;">Prices are indicative and may vary based on hair length, thickness & specific requirements.</p>
+  </div>
+  <div class="pricing-tabs">
+    <button class="ptab active" onclick="switchPrice('ladies')">Ladies</button>
+    <button class="ptab" onclick="switchPrice('gents')">Gents</button>
+    <button class="ptab" onclick="switchPrice('kids')">Kids</button>
+  </div>
+
+  <!-- LADIES PRICING -->
+  <div class="price-panel active" id="price-ladies">
+    <div class="price-grid">
+      <div class="price-col reveal">
+        <div class="price-col-title">Hair Services</div>
+        <div class="price-item"><span class="price-item-name">Haircut (Short)</span><span class="price-item-val">₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Haircut (Long)</span><span class="price-item-val">₹600</span></div>
+        <div class="price-item"><span class="price-item-name">Blow Dry</span><span class="price-item-val">₹300</span></div>
+        <div class="price-item"><span class="price-item-name">Hair Spa</span><span class="price-item-val">₹800–₹1,500</span></div>
+        <div class="price-item"><span class="price-item-name">Keratin Treatment</span><span class="price-item-val">₹3,500–₹8,000</span></div>
+        <div class="price-item"><span class="price-item-name">Rebonding</span><span class="price-item-val">₹4,000–₹10,000</span></div>
+        <div class="price-item"><span class="price-item-name">Smoothening</span><span class="price-item-val">₹4,500–₹9,000</span></div>
+        <div class="price-item"><span class="price-item-name">Scalp Treatment</span><span class="price-item-val">₹1,200–₹2,500</span></div>
+      </div>
+      <div class="price-col featured reveal">
+        <div class="price-col-badge">Popular</div>
+        <div class="price-col-title">Color Services</div>
+        <div class="price-item"><span class="price-item-name">Global Color (Short)</span><span class="price-item-val">₹1,200</span></div>
+        <div class="price-item"><span class="price-item-name">Global Color (Long)</span><span class="price-item-val">₹2,500</span></div>
+        <div class="price-item"><span class="price-item-name">Highlights (Short)</span><span class="price-item-val">₹1,500</span></div>
+        <div class="price-item"><span class="price-item-name">Highlights (Long)</span><span class="price-item-val">₹3,500</span></div>
+        <div class="price-item"><span class="price-item-name">Balayage</span><span class="price-item-val">₹3,000–₹6,000</span></div>
+        <div class="price-item"><span class="price-item-name">Ombre</span><span class="price-item-val">₹2,500–₹5,000</span></div>
+        <div class="price-item"><span class="price-item-name">Fashion Color</span><span class="price-item-val">₹2,000–₹7,000</span></div>
+        <div class="price-item"><span class="price-item-name">Root Touch-Up</span><span class="price-item-val">₹700–₹1,500</span></div>
+      </div>
+      <div class="price-col reveal">
+        <div class="price-col-title">Skin & Nail</div>
+        <div class="price-item"><span class="price-item-name">Cleanup</span><span class="price-item-val">₹400–₹600</span></div>
+        <div class="price-item"><span class="price-item-name">Basic Facial</span><span class="price-item-val">₹800–₹1,200</span></div>
+        <div class="price-item"><span class="price-item-name">Premium Facial</span><span class="price-item-val">₹1,500–₹3,000</span></div>
+        <div class="price-item"><span class="price-item-name">De-Tan (Face)</span><span class="price-item-val">₹600–₹900</span></div>
+        <div class="price-item"><span class="price-item-name">Waxing (Full Body)</span><span class="price-item-val">₹1,200–₹2,000</span></div>
+        <div class="price-item"><span class="price-item-name">Threading (Eyebrows)</span><span class="price-item-val">₹60</span></div>
+        <div class="price-item"><span class="price-item-name">Manicure</span><span class="price-item-val">₹400–₹800</span></div>
+        <div class="price-item"><span class="price-item-name">Pedicure</span><span class="price-item-val">₹500–₹1,000</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GENTS PRICING -->
+  <div class="price-panel" id="price-gents">
+    <div class="price-grid">
+      <div class="price-col reveal">
+        <div class="price-col-title">Hair Services</div>
+        <div class="price-item"><span class="price-item-name">Haircut</span><span class="price-item-val">₹300–₹500</span></div>
+        <div class="price-item"><span class="price-item-name">Haircut + Wash</span><span class="price-item-val">₹400–₹600</span></div>
+        <div class="price-item"><span class="price-item-name">Hair Styling</span><span class="price-item-val">₹200–₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Hair Spa</span><span class="price-item-val">₹600–₹1,200</span></div>
+        <div class="price-item"><span class="price-item-name">Keratin</span><span class="price-item-val">₹2,500–₹5,000</span></div>
+        <div class="price-item"><span class="price-item-name">Scalp Treatment</span><span class="price-item-val">₹800–₹2,000</span></div>
+        <div class="price-item"><span class="price-item-name">Hair Color (Global)</span><span class="price-item-val">₹800–₹1,500</span></div>
+        <div class="price-item"><span class="price-item-name">Highlights / Streaks</span><span class="price-item-val">₹600–₹1,500</span></div>
+      </div>
+      <div class="price-col featured reveal">
+        <div class="price-col-badge">Popular</div>
+        <div class="price-col-title">Beard & Grooming</div>
+        <div class="price-item"><span class="price-item-name">Beard Trim</span><span class="price-item-val">₹150–₹250</span></div>
+        <div class="price-item"><span class="price-item-name">Beard Shaping</span><span class="price-item-val">₹200–₹350</span></div>
+        <div class="price-item"><span class="price-item-name">Clean Shave</span><span class="price-item-val">₹150–₹200</span></div>
+        <div class="price-item"><span class="price-item-name">Hot Towel Shave</span><span class="price-item-val">₹250–₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Beard Color</span><span class="price-item-val">₹300–₹500</span></div>
+        <div class="price-item"><span class="price-item-name">Haircut + Beard Combo</span><span class="price-item-val">₹450–₹750</span></div>
+        <div class="price-item"><span class="price-item-name">Head Massage</span><span class="price-item-val">₹200–₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Full Grooming Pkg</span><span class="price-item-val">₹1,200–₹2,000</span></div>
+      </div>
+      <div class="price-col reveal">
+        <div class="price-col-title">Skin & Hands</div>
+        <div class="price-item"><span class="price-item-name">Men's Cleanup</span><span class="price-item-val">₹400–₹600</span></div>
+        <div class="price-item"><span class="price-item-name">Men's Facial</span><span class="price-item-val">₹700–₹1,200</span></div>
+        <div class="price-item"><span class="price-item-name">De-Tan Treatment</span><span class="price-item-val">₹600–₹900</span></div>
+        <div class="price-item"><span class="price-item-name">Blackhead Removal</span><span class="price-item-val">₹300–₹500</span></div>
+        <div class="price-item"><span class="price-item-name">Back Waxing</span><span class="price-item-val">₹500–₹800</span></div>
+        <div class="price-item"><span class="price-item-name">Chest Waxing</span><span class="price-item-val">₹400–₹700</span></div>
+        <div class="price-item"><span class="price-item-name">Manicure (Men's)</span><span class="price-item-val">₹350–₹600</span></div>
+        <div class="price-item"><span class="price-item-name">Pedicure (Men's)</span><span class="price-item-val">₹400–₹700</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KIDS PRICING -->
+  <div class="price-panel" id="price-kids">
+    <div class="price-grid">
+      <div class="price-col reveal">
+        <div class="price-col-title">Hair (Boys)</div>
+        <div class="price-item"><span class="price-item-name">Boys Haircut (under 5)</span><span class="price-item-val">₹150</span></div>
+        <div class="price-item"><span class="price-item-name">Boys Haircut (5–12)</span><span class="price-item-val">₹200–₹300</span></div>
+        <div class="price-item"><span class="price-item-name">Boys Hair Wash + Cut</span><span class="price-item-val">₹250–₹350</span></div>
+        <div class="price-item"><span class="price-item-name">Boys Styling</span><span class="price-item-val">₹150–₹250</span></div>
+        <div class="price-item"><span class="price-item-name">Boys Hair Color</span><span class="price-item-val">₹500–₹800</span></div>
+      </div>
+      <div class="price-col featured reveal">
+        <div class="price-col-badge">Popular</div>
+        <div class="price-col-title">Hair (Girls)</div>
+        <div class="price-item"><span class="price-item-name">Girls Haircut (under 5)</span><span class="price-item-val">₹200</span></div>
+        <div class="price-item"><span class="price-item-name">Girls Haircut (5–12)</span><span class="price-item-val">₹250–₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Girls Hair Wash + Cut</span><span class="price-item-val">₹350–₹500</span></div>
+        <div class="price-item"><span class="price-item-name">Girls Braids / Plaits</span><span class="price-item-val">₹200–₹400</span></div>
+        <div class="price-item"><span class="price-item-name">Girls Hair Spa</span><span class="price-item-val">₹500–₹800</span></div>
+      </div>
+      <div class="price-col reveal">
+        <div class="price-col-title">Add-ons</div>
+        <div class="price-item"><span class="price-item-name">Head Massage</span><span class="price-item-val">₹150–₹250</span></div>
+        <div class="price-item"><span class="price-item-name">Nail Paint (Basic)</span><span class="price-item-val">₹100–₹200</span></div>
+        <div class="price-item"><span class="price-item-name">Face Pack (Kids)</span><span class="price-item-val">₹200–₹300</span></div>
+        <div class="price-item"><span class="price-item-name">Hair Accessories</span><span class="price-item-val">₹50 onwards</span></div>
+        <div class="price-item"><span class="price-item-name">Party Hairstyle</span><span class="price-item-val">₹400–₹800</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="sec-label">Our Work</div>
+      <h2 class="sec-title">Style <em>Gallery</em></h2>
+    </div>
+    <a href="#booking" class="view-all-link">Book Your Look →</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item g1">
+      <div class="gallery-inner">💇</div>
+      <div class="gallery-overlay"><div class="gallery-label">Hair Transformations</div></div>
+    </div>
+    <div class="gallery-item g2">
+      <div class="gallery-inner">🎨</div>
+      <div class="gallery-overlay"><div class="gallery-label">Color Creations</div></div>
+    </div>
+    <div class="gallery-item g3">
+      <div class="gallery-inner">💅</div>
+      <div class="gallery-overlay"><div class="gallery-label">Nail Art</div></div>
+    </div>
+    <div class="gallery-item g4">
+      <div class="gallery-inner">✨</div>
+      <div class="gallery-overlay"><div class="gallery-label">Bridal Looks</div></div>
+    </div>
+    <div class="gallery-item g5">
+      <div class="gallery-inner">🧔</div>
+      <div class="gallery-overlay"><div class="gallery-label">Men's Grooming</div></div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--muted);">📸 Follow us on Instagram <a href="#" style="color:var(--gold);">@beautytrends.salon</a> for more looks</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="test-header">
+    <div class="sec-label">Client Love</div>
+    <h2 class="sec-title">What They <em>Say</em></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"Best salon experience I've ever had. The balayage came out exactly like I wanted and the staff was incredibly professional and warm."</div>
+      <div class="test-author">
+        <div class="test-avatar">👩</div>
+        <div><div class="test-name">Priya Mehta</div><div class="test-role">Regular Client</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"I never liked going to salons but Beauty Trends changed that. The beard grooming and haircut was on point. Will definitely be coming back every month."</div>
+      <div class="test-author">
+        <div class="test-avatar">👨</div>
+        <div><div class="test-name">Rahul Sharma</div><div class="test-role">Monthly Visitor</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"Got my bridal makeover done here. The team was so patient and the final look was absolutely stunning. Highly recommend for bridal packages!"</div>
+      <div class="test-author">
+        <div class="test-avatar">👰</div>
+        <div><div class="test-name">Ananya Krishnan</div><div class="test-role">Bridal Client</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="booking-wrap">
+    <div class="booking-info">
+      <div class="sec-label">Appointments</div>
+      <h2 class="sec-title">Book Your <em>Visit</em></h2>
+      <p>Ready for a fresh look? Fill out the form and our team will confirm your appointment within 2 hours. Walk-ins welcome too!</p>
+      <div class="booking-contacts">
+        <div class="b-contact">
+          <div class="b-icon">📞</div>
+          <div class="b-txt"><small>Call Us</small>+91 98765 43210</div>
+        </div>
+        <div class="b-contact">
+          <div class="b-icon">💬</div>
+          <div class="b-txt"><small>WhatsApp</small>+91 98765 43210</div>
+        </div>
+        <div class="b-contact">
+          <div class="b-icon">📧</div>
+          <div class="b-txt"><small>Email</small><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7afa2ababa887a5a2a6b2b3beb3b5a2a9a3b4e9aea9">[email&#160;protected]</a></div>
+        </div>
+        <div class="b-contact">
+          <div class="b-icon">📍</div>
+          <div class="b-txt"><small>Location</small>Amruthahalli, Bangalore – 560092<br><small style="color:var(--muted);font-size:.72rem;">Near Amruth Nagar Police Station</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-form reveal">
+      <div class="form-title">Reserve Your Slot</div>
+      <div id="bookingFormWrap">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="Priya" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="Mehta">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="priya@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="bdate" required>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select id="btime">
+              <option value="">Select time</option>
+              <option>10:00 AM</option><option>10:30 AM</option>
+              <option>11:00 AM</option><option>11:30 AM</option>
+              <option>12:00 PM</option><option>12:30 PM</option>
+              <option>1:00 PM</option><option>2:00 PM</option>
+              <option>3:00 PM</option><option>4:00 PM</option>
+              <option>5:00 PM</option><option>6:00 PM</option>
+              <option>7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service Required</label>
+          <select id="bservice">
+            <option value="">Select a service</option>
+            <optgroup label="Hair">
+              <option>Haircut & Style</option>
+              <option>Hair Coloring</option>
+              <option>Keratin Treatment</option>
+              <option>Rebonding / Smoothening</option>
+              <option>Hair Spa</option>
+              <option>Bridal Hair</option>
+            </optgroup>
+            <optgroup label="Skin & Body">
+              <option>Facial</option>
+              <option>Cleanup</option>
+              <option>De-Tan Treatment</option>
+              <option>Waxing</option>
+              <option>Threading</option>
+              <option>Body Polishing</option>
+            </optgroup>
+            <optgroup label="Nails">
+              <option>Manicure</option>
+              <option>Pedicure</option>
+              <option>Nail Art</option>
+              <option>Gel Extensions</option>
+            </optgroup>
+            <optgroup label="Men's">
+              <option>Men's Haircut</option>
+              <option>Beard Grooming</option>
+              <option>Men's Facial</option>
+              <option>Full Grooming Package</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Special Requests</label>
+          <textarea id="bnotes" placeholder="Any specific requests or reference photos to discuss..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitBooking()">Confirm Appointment →</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        ✨ Your appointment request has been received!<br>
+        <span style="font-family:'DM Sans';font-size:.85rem;color:var(--muted);font-style:normal;">We'll call you within 2 hours to confirm.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">Find Us</div>
+  <h2 class="sec-title">Get In <em>Touch</em></h2>
+  <div class="contact-grid">
+    <div class="contact-block reveal">
+      <div class="contact-block-title">Our Location</div>
+      <div class="contact-item">
+        <div class="contact-item-lbl">Address</div>
+        <div class="contact-item-val">Amruthahalli, Bangalore – 560092<br>Near Amruth Nagar Police Station</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-lbl">Phone</div>
+        <div class="contact-item-val">+91 98765 43210</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-lbl">WhatsApp</div>
+        <div class="contact-item-val">+91 98765 43210</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-lbl">Email</div>
+        <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbd3ded7d7d4fbd9dedacecfc2cfc9ded5dfc895d2d5">[email&#160;protected]</a></div>
+      </div>
+      <div class="map-placeholder">
+        <div class="map-icon">📍</div>
+        <div>Add your Google Maps embed here.<br>Search "Beauty Trends Amruthahalli Bangalore" on maps.google.com → Share → Embed a map → paste the iframe code.</div>
+      </div>
+    </div>
+    <div class="contact-block reveal">
+      <div class="contact-block-title">Working Hours</div>
+      <div class="hours-row today"><span class="day">Saturday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 AM – 8:00 PM</span></div>
+      <div class="hours-row" style="color:var(--rose)"><span class="day">Friday</span><span class="time" style="color:var(--rose)">Closed</span></div>
+      <div style="margin-top:1.5rem; padding:1rem; background:rgba(201,168,76,0.07); border:1px solid var(--border); font-size:.8rem; color:var(--muted); line-height:1.7;">
+        💡 Last appointment taken 30 minutes before closing. Walk-ins welcome, prior booking recommended on weekends.
+      </div>
+    </div>
+    <div class="contact-block reveal">
+      <div class="contact-block-title">Follow Us</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">Stay updated with our latest looks, offers & behind-the-scenes content.</p>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <a href="#" style="display:flex;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:1.4rem;">📸</span>
+          <div><div style="font-size:.82rem;font-weight:500;">Instagram</div><div style="font-size:.72rem;color:var(--muted);">@beautytrends.salon</div></div>
+        </a>
+        <a href="#" style="display:flex;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:1.4rem;">👤</span>
+          <div><div style="font-size:.82rem;font-weight:500;">Facebook</div><div style="font-size:.72rem;color:var(--muted);">/BeautyTrendsSalon</div></div>
+        </a>
+        <a href="#" style="display:flex;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:1.4rem;">▶</span>
+          <div><div style="font-size:.82rem;font-weight:500;">YouTube</div><div style="font-size:.72rem;color:var(--muted);">Beauty Trends Official</div></div>
+        </a>
+        <a href="#" style="display:flex;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:1.4rem;">💬</span>
+          <div><div style="font-size:.82rem;font-weight:500;">WhatsApp</div><div style="font-size:.72rem;color:var(--muted);">Chat to book instantly</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">Beauty<span> Trends</span></a>
+      <p class="footer-tagline">Your style destination. Premium unisex salon for hair, skin, nails & grooming since November 2024.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">👤</a>
+        <a href="#" class="social-btn">▶</a>
+        <a href="#" class="social-btn">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Haircut & Styling</a></li>
+        <li><a href="#services">Hair Coloring</a></li>
+        <li><a href="#services">Skin & Facials</a></li>
+        <li><a href="#services">Nail Art</a></li>
+        <li><a href="#services">Men's Grooming</a></li>
+        <li><a href="#services">Bridal Packages</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#booking">Book Now</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">📍 Amruthahalli, Bangalore – 560092</a></li>
+        <li><a href="#">📞 +91 98765 43210</a></li>
+        <li><a href="#">📧 <span class="__cf_email__" data-cfemail="96fef3fafaf9d6f4f3f7e3e2efe2e4f3f8f2e5b8fff8">[email&#160;protected]</span></a></li>
+        <li><a href="#">🕐 Mon–Thu, Sat–Sun: 10–8</a></li>
+        <li><a href="#">❌ Friday: Closed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Beauty Trends. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 60);
+});
+
+// Mobile menu
+document.getElementById('hamburger').onclick = () => document.getElementById('mobileMenu').classList.add('open');
+document.getElementById('mobileClose').onclick = () => document.getElementById('mobileMenu').classList.remove('open');
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// Scroll helper
+function goTo(selector) {
+  const el = document.querySelector(selector);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Nav background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.style.background = window.scrollY > 60
+    ? 'rgba(8,8,8,0.97)'
+    : 'linear-gradient(to bottom, rgba(8,8,8,0.97), transparent)';
+});
+
+// Service tabs
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+  observeReveal();
+}
+
+// Pricing tabs
+function switchPrice(id) {
+  document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+  document.getElementById('price-' + id).classList.add('active');
+  event.target.classList.add('active');
+  observeReveal();
+}
+
+// Scroll reveal
+function observeReveal() {
+  const items = document.querySelectorAll('.reveal:not(.visible)');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(el => observer.observe(el));
+}
+observeReveal();
+
+// Set min date for booking
+const dateInput = document.getElementById('bdate');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+}
+
+// Booking form submit
+function submitBooking() {
+  const fname = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const bdate = document.getElementById('bdate').value;
+  const bservice = document.getElementById('bservice').value;
+
+  // Clear previous errors
+  document.querySelectorAll('.field-error').forEach(e => e.remove());
+
+  let hasError = false;
+  if (!fname) { markError('fname', 'Please enter your name'); hasError = true; }
+  if (!phone || phone.replace(/\D/g,'').length < 10) { markError('phone', 'Please enter a valid 10-digit number'); hasError = true; }
+  if (!bdate) { markError('bdate', 'Please select a date'); hasError = true; }
+  if (!bservice) { markError('bservice', 'Please select a service'); hasError = true; }
+
+  if (hasError) return;
+
+  document.getElementById('bookingFormWrap').style.display = 'none';
+  const success = document.getElementById('formSuccess');
+  success.style.display = 'block';
+  success.innerHTML = `
+    <div style="font-size:2rem;margin-bottom:1rem;">✨</div>
+    <div style="font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:.05em;color:var(--gold);margin-bottom:.8rem;">Booking Received!</div>
+    <div style="font-family:'DM Sans';font-size:.88rem;color:var(--muted);font-style:normal;line-height:1.8;">
+      Thank you, <strong style="color:var(--white)">${fname}</strong>!<br>
+      Your appointment for <strong style="color:var(--gold)">${bservice}</strong><br>
+      on <strong style="color:var(--gold)">${formatDate(bdate)}</strong> is noted.<br><br>
+      We'll call <strong style="color:var(--white)">${phone}</strong> within 2 hours to confirm. 💛
+    </div>`;
+}
+
+function markError(id, msg) {
+  const el = document.getElementById(id);
+  el.style.borderColor = '#c9607a';
+  const err = document.createElement('span');
+  err.className = 'field-error';
+  err.style.cssText = 'font-size:.7rem;color:#c9607a;margin-top:.3rem;display:block;';
+  err.textContent = msg;
+  el.parentNode.appendChild(err);
+  el.addEventListener('input', () => {
+    el.style.borderColor = '';
+    err.remove();
+  }, { once: true });
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+}
+</script>
+</body>
+</html>
